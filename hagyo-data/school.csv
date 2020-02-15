@@ -1,0 +1,4 @@
+_id,name,uniqueId,address,dateCreated,noOfFaculties,noOfStudents,noOfClasses,classDistrib,contactNo,headPerson,isActivated,noOfWorkingDays,noOfPeriods,classDistributions
+100,AA_name,AA,AA_addr,11/11/2019,10,100,2,"{""10"":""2""}",111111,2,TRUE,5,7,"{""8"":""1"", ""9"":""1"", ""10"":""1""}"
+101,AB_name,AB,AB_addr,11/11/2019,20,200,4,"{""10"":""4""}",22222,14,TRUE,5,7,"{""8"":""1"", ""9"":""1"", ""10"":""1""}"
+102,AC_name,AC,AC_addr,11/11/2019,30,300,6,"{""10"":""6""}",333333,15,TRUE,5,7,"{""8"":""1"", ""9"":""1"", ""10"":""1""}"
