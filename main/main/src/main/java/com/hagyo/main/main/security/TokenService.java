@@ -1,15 +1,21 @@
 package com.hagyo.main.main.security;
 
+import com.hagyo.main.main.model.User;
 import com.hagyo.main.main.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
-@Component
+@Service
 public class TokenService {
 
     @Autowired
@@ -35,9 +41,7 @@ public class TokenService {
             }
             return stringBuffer.toString();
         }
-//        public static boolean isValidToken(String token) {
-////            boolean isValid = false;
-////            if (userRepository.findByToken(token) != null) isValid = true;
-////            return  isValid;
-////        }
+        public static boolean isValidToken(String token) {
+            return userRepository.existsByToken(token);
+        }
     }

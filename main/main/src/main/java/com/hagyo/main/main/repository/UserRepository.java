@@ -5,6 +5,7 @@ import com.hagyo.main.main.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, Integer> {
-    public User findByUsername(String username);
-    public User findByUsernameAndPassword(String username, String password);
+     User findByUsernameAndPassword(String username, String password);
+     boolean existsByToken(String token);
+
 }

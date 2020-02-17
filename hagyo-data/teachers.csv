@@ -1,4 +1,4 @@
-_id,name,Tid,password,address,phoneNo,isActivated,school,academicYear,isDisabled
+_id,name,tid,password,address,phoneNo,isActivated,school,academicYear,isDisabled
 100,AA_t_1,C19AA001,pass1,addr_AA_1,1001,TRUE,100,1,FALSE
 101,AA_t_2,C19AA002,pass1,addr_AA_2,1002,TRUE,100,1,FALSE
 102,AA_t_3,C19AA003,pass1,addr_AA_3,1003,TRUE,100,1,FALSE
