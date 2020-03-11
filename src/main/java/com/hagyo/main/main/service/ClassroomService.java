@@ -34,12 +34,12 @@ public class ClassroomService {
     private SubjectRepository subjectRepository;
 
 
-    public Classroom findClassroomById(int id) {
+    public Optional<Classroom> findClassroomById(String id) {
         return classroomRepository.findById(id);
     }
 
-    public TimetableDto findTimetable(int id) {
-        int timetableId = classroomRepository.findById(id).getTimetable();
+    public TimetableDto findTimetable(String id) {
+        int timetableId = (classroomRepository.findById(id).orElse(null)).getTimetable();
         ClassTimetable timetable = classTimetableRepository.findById(timetableId);
 
         TimetableDto timetableDto = new TimetableDto();

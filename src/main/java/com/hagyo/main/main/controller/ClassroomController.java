@@ -26,7 +26,7 @@ public class ClassroomController {
     private ClassTimetableRepository classTimetableRepository;
 
     @GetMapping("/{classroomId}")
-    public ResponseEntity<?> getClassroomDetailsById(@RequestHeader("Authorization") String authToken, @PathVariable("classroomId") int classroomId) {
+    public ResponseEntity<?> getClassroomDetailsById(@RequestHeader("Authorization") String authToken, @PathVariable("classroomId") String classroomId) {
         if (userRepository.existsByToken(authToken)) {
             return new ResponseEntity<>(classroomService.findClassroomById(classroomId), HttpStatus.OK);
         } else {
@@ -34,7 +34,7 @@ public class ClassroomController {
         }
     }
     @GetMapping("/{classroomId}/timetable")
-    public ResponseEntity<?> getClassroomTimetable(@RequestHeader("Authorization") String authToken, @PathVariable("classroomId") int classroomId) {
+    public ResponseEntity<?> getClassroomTimetable(@RequestHeader("Authorization") String authToken, @PathVariable("classroomId") String classroomId) {
         if (userRepository.existsByToken(authToken)) {
             return new ResponseEntity<>(classroomService.findTimetable(classroomId), HttpStatus.OK);
         } else {

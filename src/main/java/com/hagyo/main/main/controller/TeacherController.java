@@ -22,6 +22,7 @@ public class TeacherController {
 
     @GetMapping("/{tid}")
     public ResponseEntity<?> getTeacherByTid(@RequestHeader("Authorization") String authToken, @PathVariable("tid") String tid) {
+        System.out.println("atuthoken==="+authToken);
         if (userRepository.existsByToken(authToken)) {
             return new ResponseEntity<>(teacherService.findTeacherByTid(tid), HttpStatus.OK);
         } else {
