@@ -24,13 +24,17 @@ public class UserService {
             User existingUser = userRepository.findByUsernameAndPassword(user.getUsername(), PasswordService.generatePasswordHash(user.getPassword()));
             System.out.println(existingUser);
             if (existingUser == null) {
-                tokenDto = new TokenDto("invalid Token");
+                tokenDto = new TokenDto("no such user");
             } else {
-                tokenString = TokenService.generateToken( user.getUsername() + "AKSDJHJJ2435", "MD5");
-                System.out.println(user);
-                existingUser.setToken(tokenString);
-                userRepository.save(existingUser);
-                tokenDto = new TokenDto(tokenString);
+                if (existingUser.getToken() != null) {
+                    tokenDto = new TokenDto(existingUser.getToken());
+                } else {
+                    tokenString = TokenService.generateToken(user.getUsername() + "AKSDJHJJ2435", "MD5");
+                    System.out.println(user);
+                    existingUser.setToken(tokenString);
+                    userRepository.save(existingUser);
+                    tokenDto = new TokenDto(tokenString);
+                }
             }
             return tokenDto;
     }
