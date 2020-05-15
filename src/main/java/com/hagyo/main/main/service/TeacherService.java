@@ -13,6 +13,7 @@ public class TeacherService {
     @Autowired
     private TeacherRepository teacherRepository;
 
+
     public Teacher findTeacherByTid(String tid) {
         List<Teacher> teachers = teacherRepository.findByTid(tid);
         if (!teachers.isEmpty()) {

@@ -1,5 +1,6 @@
 package com.hagyo.main.main.controller;
 
+import com.hagyo.main.main.dto.ResponseInfo;
 import com.hagyo.main.main.exception.InvalidTokenException;
 import com.hagyo.main.main.model.TimetablePeriod;
 import com.hagyo.main.main.repository.UserRepository;
@@ -44,5 +45,14 @@ public class TimetablePeriodController {
             return new ResponseEntity<>(new InvalidTokenException("Invalid Token"), HttpStatus.UNAUTHORIZED);
         }
     }
+
+//    @GetMapping("/teachers/{tid}")
+//    public ResponseInfo getTeacherTimetable(
+//            @RequestHeader("Authorization") String authToken,
+//            @PathVariable("tid") String teacherId
+//    ) {
+//
+//    }
+
 
 }
