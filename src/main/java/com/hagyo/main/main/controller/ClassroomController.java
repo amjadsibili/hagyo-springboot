@@ -6,6 +6,7 @@ import com.hagyo.main.main.model.Classroom;
 import com.hagyo.main.main.repository.ClassTimetableRepository;
 import com.hagyo.main.main.repository.ClassroomRepository;
 import com.hagyo.main.main.repository.UserRepository;
+import com.hagyo.main.main.service.ClassTimetableService;
 import com.hagyo.main.main.service.ClassroomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class ClassroomController {
     @Autowired
     private ClassroomService classroomService;
     @Autowired
-    private ClassTimetableRepository classTimetableRepository;
+    private ClassTimetableService classTimetableService;
 
     @GetMapping("/{classroomId}")
     public ResponseEntity<?> getClassroomDetailsById(@RequestHeader("Authorization") String authToken, @PathVariable("classroomId") String classroomId) {
@@ -41,8 +42,5 @@ public class ClassroomController {
             return new ResponseEntity<>(new InvalidTokenException("Invalid Token"), HttpStatus.UNAUTHORIZED);
         }
     }
-    @GetMapping("/test")
-    public List<ClassTimetable> get() {
-        return classTimetableRepository.findBymondayPeriods(100);
-    }
+
 }

@@ -4,7 +4,7 @@ import com.hagyo.main.main.model.Subject;
 
 public class TimetablePeriodDto {
 
-    private Integer id;
+    private String id;
     private Subject period1;
     private Subject period2;
     private Subject period3;
@@ -14,7 +14,7 @@ public class TimetablePeriodDto {
     private Subject period7;
     private Subject period8;
 
-    public TimetablePeriodDto(Integer id, Subject period1, Subject period2, Subject period3, Subject period4, Subject period5, Subject period6, Subject period7, Subject period8) {
+    public TimetablePeriodDto(String id, Subject period1, Subject period2, Subject period3, Subject period4, Subject period5, Subject period6, Subject period7, Subject period8) {
         this.id = id;
         this.period1 = period1;
         this.period2 = period2;
@@ -29,11 +29,11 @@ public class TimetablePeriodDto {
     public TimetablePeriodDto() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

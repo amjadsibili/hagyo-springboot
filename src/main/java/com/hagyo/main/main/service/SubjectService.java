@@ -17,7 +17,7 @@ public class SubjectService {
     public List<Subject> findSubjectByClassroomAndSchool(int classroom, int school) {
         return subjectRepository.findByClassroomAndSchool(classroom, school);
     }
-    public HandledByDto findTeacherBySubject(int subject) {
+    public HandledByDto findTeacherBySubject(String subject) {
         Subject teacherSubject = subjectRepository.findById(subject);
         return new HandledByDto(teacherSubject.getHandledBy());
     }

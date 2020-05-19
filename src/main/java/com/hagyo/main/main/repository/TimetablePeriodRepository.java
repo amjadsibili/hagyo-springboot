@@ -8,21 +8,21 @@ import java.util.List;
 public interface TimetablePeriodRepository extends MongoRepository<TimetablePeriod, Integer> {
     TimetablePeriod findById(String id);
 
-    List<TimetablePeriod> findByPeriod1(int period1SubjectId);
+    List<TimetablePeriod> findByPeriod1(String period1SubjectId);
 
-    List<TimetablePeriod> findByPeriod2(int period2SubjectId);
+    List<TimetablePeriod> findByPeriod2(String period2SubjectId);
 
-    List<TimetablePeriod> findByPeriod3(int period3SubjectId);
+    List<TimetablePeriod> findByPeriod3(String period3SubjectId);
 
-    List<TimetablePeriod> findByPeriod4(int period4SubjectId);
+    List<TimetablePeriod> findByPeriod4(String period4SubjectId);
 
-    List<TimetablePeriod> findByPeriod5(int period5SubjectId);
+    List<TimetablePeriod> findByPeriod5(String period5SubjectId);
 
-    List<TimetablePeriod> findByPeriod6(int period6SubjectId);
+    List<TimetablePeriod> findByPeriod6(String period6SubjectId);
 
-    List<TimetablePeriod> findByPeriod7(int period7SubjectId);
+    List<TimetablePeriod> findByPeriod7(String period7SubjectId);
 
-    List<TimetablePeriod> findByPeriod8(int period8SubjectId);
+    List<TimetablePeriod> findByPeriod8(String period8SubjectId);
 
     boolean existsByPeriod1(int period1SubjectId);
 

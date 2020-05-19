@@ -4,6 +4,7 @@ import com.hagyo.main.main.dto.ResponseInfo;
 import com.hagyo.main.main.exception.InvalidTokenException;
 import com.hagyo.main.main.model.TimetablePeriod;
 import com.hagyo.main.main.repository.UserRepository;
+import com.hagyo.main.main.service.ClassTimetableService;
 import com.hagyo.main.main.service.TimetablePeriodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ public class TimetablePeriodController {
     private UserRepository userRepository;
     @Autowired
     private TimetablePeriodService timetablePeriodService;
+    @Autowired
+    private ClassTimetableService classTimetableService;
 
     @PostMapping("/create")
     public ResponseEntity<?> createPeriod(@RequestHeader("Authorization") String authToken,
@@ -46,13 +49,14 @@ public class TimetablePeriodController {
         }
     }
 
-//    @GetMapping("/teachers/{tid}")
-//    public ResponseInfo getTeacherTimetable(
-//            @RequestHeader("Authorization") String authToken,
-//            @PathVariable("tid") String teacherId
-//    ) {
-//
-//    }
+    @GetMapping("/{teacherId}/timetable")
+    public ResponseEntity<?> getTeacherTimetable(@RequestHeader("Authorization") String authToken, @PathVariable("teacherId") String teacherId) {
+        if (userRepository.existsByToken(authToken)) {
+            return new ResponseEntity<>(classTimetableService.getAllotedPeriodsByTeacher(teacherId), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(new InvalidTokenException("Invalid Token"), HttpStatus.UNAUTHORIZED);
+        }
+    }
 
 
 }

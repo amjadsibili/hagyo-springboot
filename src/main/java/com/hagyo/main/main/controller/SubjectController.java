@@ -30,7 +30,7 @@ public class SubjectController {
         }
     }
     @GetMapping("/{subjectId}/teacher")
-    public ResponseEntity<?> findTeacherBySubject(@RequestHeader("Authorization") String authToken, @PathVariable("subjectId") int subjectId) {
+    public ResponseEntity<?> findTeacherBySubject(@RequestHeader("Authorization") String authToken, @PathVariable("subjectId") String subjectId) {
         if (userRepository.existsByToken(authToken)) {
             return new ResponseEntity<>(subjectService.findTeacherBySubject(subjectId), HttpStatus.OK);
         } else {

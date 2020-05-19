@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class HandledByDto {
 
-    private int handledBy;
+    private String handledBy;
 
-    public HandledByDto(int handledBy) {
+    public HandledByDto(String handledBy) {
         this.handledBy = handledBy;
     }
 }

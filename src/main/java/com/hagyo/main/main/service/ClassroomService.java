@@ -102,7 +102,7 @@ public class ClassroomService {
     private TimetablePeriodDto getTimeTablePeriod(TimetablePeriod timetablePeriod) {
         TimetablePeriodDto timetablePeriodDto = new TimetablePeriodDto();
         List<Subject> subjects = new ArrayList<>();
-        List<Integer> subjectIds = new ArrayList<>(Arrays.asList(
+        List<String> subjectIds = new ArrayList<>(Arrays.asList(
                 timetablePeriod.getPeriod1(),
                 timetablePeriod.getPeriod2(),
                 timetablePeriod.getPeriod3(),
@@ -113,7 +113,7 @@ public class ClassroomService {
                 timetablePeriod.getPeriod8()));
 
         subjectIds.forEach(id -> {
-            subjects.add(subjectRepository.findById(id).orElse(null));
+            subjects.add(subjectRepository.findById(id));
         });
         timetablePeriodDto.setId(timetablePeriod.getId());
         timetablePeriodDto.setPeriod1(subjects.get(0));

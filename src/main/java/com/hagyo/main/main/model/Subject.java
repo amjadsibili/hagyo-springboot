@@ -8,17 +8,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "subject")
 public class Subject {
     @Id
-    private int id;
+    private String id;
     private String name;
-    private int handledBy;
+    private String handledBy;
     private int classroom;
     private int school;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -30,11 +30,11 @@ public class Subject {
         this.name = name;
     }
 
-    public int getHandledBy() {
+    public String getHandledBy() {
         return handledBy;
     }
 
-    public void setHandledBy(int handledBy) {
+    public void setHandledBy(String handledBy) {
         this.handledBy = handledBy;
     }
 
