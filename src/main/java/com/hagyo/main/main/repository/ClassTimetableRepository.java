@@ -8,12 +8,19 @@ import java.util.List;
 
 public interface ClassTimetableRepository extends MongoRepository<ClassTimetable, Integer> {
     ClassTimetable findById(int id);
-    List<ClassTimetable> findByMondayPeriods(Integer mp);
-    List<ClassTimetable> findByTuesdayPeriods(Integer ts);
-    List<ClassTimetable> findByWednesdayPeriods(Integer wp);
-    List<ClassTimetable> findByThursdayPeriods(Integer thrp);
-    List<ClassTimetable> findByFridayPeriods(Integer fp);
-    List<ClassTimetable> findBySaturdayPeriods(Integer sp);
-    List<ClassTimetable> findBySundayPeriods(Integer sunp);
+
+    List<ClassTimetable> findByMondayPeriods(String mp);
+
+    List<ClassTimetable> findByTuesdayPeriods(String ts);
+
+    List<ClassTimetable> findByWednesdayPeriods(String wp);
+
+    List<ClassTimetable> findByThursdayPeriods(String thrp);
+
+    List<ClassTimetable> findByFridayPeriods(String fp);
+
+    List<ClassTimetable> findBySaturdayPeriods(String sp);
+
+    List<ClassTimetable> findBySundayPeriods(String sunp);
 
 }
